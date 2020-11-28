@@ -1,35 +1,60 @@
+const a = document.querySelector('.word1');
+const b = document.querySelector('.word2');
+const string = document.querySelector('.string');
 
- //const string = document.querySelector('.string');
- const a = document.querySelector('.word1');
- const b = document.querySelector('.word2');
- const wo1 = 'hello';
- const wo2 = 'cat';
+function countMinDistance(str, wordA, wordB) {
+    let wordAIndex = null;
+    let wordBIndex = null;
+    let words = str.split(" ");
+    let length = words.length;
+    for (var i = 0; i < length; i++) {
+      
+      if (words[i] === wordA) {
+        wordAIndex = words.indexOf(words[i]);
+      }
+  
+      if (words[i] === wordB) {
+        wordBIndex = words.indexOf(words[i]);
+      }
+  
+      if (wordAIndex !== null && wordBIndex !== null) {
+        let distance = Math.abs(wordAIndex - wordBIndex) - 1;
+        document.querySelector('.result1').textContent = `Минимальная дистанция  ${distance} `;
+        return distance;
+      }
+    }
+}
 
- const s = 'dog cat hello cat dog dog hello cat dog world dog hello';
- console.log(s);
-const arrStr = s.split(' ');
-console.log(arrStr[3]);
+document.querySelector('.min-count').addEventListener('click', (event) => {
+event.preventDefault;
+countMinDistance(string.value, a.value, b.value)
+});
 
-function countNum(arrStr, w1, w2) {
- //  if (w1 === w2) { return 0} 
+function countMaxDistance(str, wordA, wordB) {
+    let wordAIndex = null;
+    let wordBIndex = null;
+    let words = str.split(" ");
+    let length = words.length;
+    for (var i = 0; i < length; i++) {
+      
+      if (words[i] === wordA) {
+        wordAIndex = words.indexOf(words[i]);
+      }
+  
+      if (words[i] === wordB) {
+        wordBIndex = words.lastIndexOf(words[i]);
+      }
+  
+      if (wordAIndex !== null && wordBIndex !== null) {
+        let distance = Math.abs(wordAIndex - wordBIndex) - 1;
+        document.querySelector('.result2').textContent = `Максимальная дистанция  ${distance}`;
+        return distance;
+      }
+      
+    }
+}
 
-return arrStr.reduce(function(memo, item, index, array)
-	{
-        let count;
-       if (item === w1) {
-           console.log(count = 0);
-         
-       }
-       else if (item === w2) {
-        console.log(item);
-           console.log(count);
-       }
-       count = count + 1;
-		
-	}, 0);
-};
-
-countNum(arrStr, wo1, wo2);
-
-
- //document.querySelector('.min-count').addEventListener('click', smallestWordDistance(s, a, b))
+document.querySelector('.max-count').addEventListener('click', (event) => {
+event.preventDefault;
+countMaxDistance(string.value, a.value, b.value)
+});

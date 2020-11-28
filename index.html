@@ -6,14 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <input class="string">
-    <input class="word1">
-    <input class="word2">
+    <form style="display: flex; flex-direction: column;">
+      <label>Введите текст</label>
+      <input class="string" required>
+
+      <label>Введите первое слово</label>
+      <input class="word1" required>
+
+      <label>Введите второе слово</label>
+      <input class="word2" required>
+    </form>
+
     <button class="min-count">Найти кратчайшую дистанцию</button>
     <button class="max-count">Найти длинную дистанцию</button>
     <span class="result1"></span>
     <span class="result2"></span>
+   
 
 </body>
 <script type="text/javascript" src="./index.js">
