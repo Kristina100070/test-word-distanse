@@ -11,22 +11,19 @@ function countDistance(str, wordA, wordB, e) {
     words.forEach(function(item, i, arr) {
       if (item === wordA) {
         wordAIndex = words.indexOf(arr[i]);
-        console.log(wordAIndex);
       }
       if (item === wordB && e.target.classList.contains("min-count")) {
         wordBIndex = words.indexOf(arr[i]);
-          console.log(wordBIndex);
-       }
-       if (item === wordB && e.target.classList.contains("max-count")) {
+      }
+      if (item === wordB && e.target.classList.contains("max-count")) {
         wordBIndex = words.lastIndexOf(words[i]);
-        console.log(wordBIndex);
-    }
-    if (wordAIndex !== null && wordBIndex !== null) {
+      }
+      if (wordAIndex !== null && wordBIndex !== null) {
       let distance = Math.abs(wordAIndex - wordBIndex) - 1;
       document.querySelector('.result').textContent = `Дистанция  ${distance} `;
-    }
+      }
     });
-  } 
+} 
 
 document.querySelector('.button').addEventListener('click', (event) => {
 event.preventDefault;
