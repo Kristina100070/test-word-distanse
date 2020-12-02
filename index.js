@@ -9,7 +9,10 @@ function countDistance(str, wordA, wordB, e) {
     let words = str.split(" ");
 
     words.forEach(function(item, i, arr) {
-      if (item === wordA) {
+      if (item === wordA && e.target.classList.contains("min-count")) {
+        wordAIndex = words.lastIndexOf(arr[i]);
+      }
+      if (item === wordA && e.target.classList.contains("max-count")) {
         wordAIndex = words.indexOf(arr[i]);
       }
       if (item === wordB && e.target.classList.contains("min-count")) {
