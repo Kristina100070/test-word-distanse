@@ -10,13 +10,13 @@ function countDistance(str, wordA, wordB, e) {
 
     words.forEach(function(item, i, arr) {
       if (item === wordA) {
-        wordAIndex = words.indexOf(arr[i]);
+        wordAIndex = arr.indexOf(arr[i]);
       }
       if (item === wordB && e.target.classList.contains("min-count")) {
-        wordBIndex = words.indexOf(arr[i]);
+        wordBIndex = arr.indexOf(arr[i]);
       }
       if (item === wordB && e.target.classList.contains("max-count")) {
-        wordBIndex = words.lastIndexOf(words[i]);
+        wordBIndex = arr.lastIndexOf(arr[i]);
       }
       if (wordAIndex !== null && wordBIndex !== null) {
       let distance = Math.abs(wordAIndex - wordBIndex) - 1;
